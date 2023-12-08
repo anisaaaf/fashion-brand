@@ -1,7 +1,7 @@
 const loginBtn = document.querySelector(".btnLogin-popup");
 const closeBtn = document.querySelector(".icon-close");
 const loginCtn = document.querySelector(".wrapper");
-const registerLink = document.querySelector(".register-link");
+const registerLink = document.querySelector(".register-link"); /* aktivizimi i butonit register*/
 const wrapper = document.querySelector(".wrapper");
 const loginLink = document.querySelector(".login-link")
 
