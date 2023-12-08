@@ -175,6 +175,30 @@ header.sticky{
 .row img:hover{
     transform: scale(0.9);
 }
+.center-textt h2{
+	color:black;
+	font-size: 30px;
+	text-transform: capitalize;
+	text-align: center;
+	margin-bottom: 55px;
+}
+.collections{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px , auto));
+	gap:2rem;
+}
+.roww{
+	position: relative;
+	transition: all .40s;
+}
+.roww img{
+	width: 100%;
+	height: auto;
+	transition: all .40s;
+}
+.roww img:hover{
+	transform: scale(0.9);
+}
 .contact{
     background-color: lightgray;
 }
