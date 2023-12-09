@@ -1,5 +1,5 @@
 *{
-   
+    /* <<<<<<<<<Header */
     padding: 0;
    margin: 0;
     box-sizing: border-box;
@@ -284,7 +284,7 @@ h5{
     left:-18%;
 
 }
-/* pjesa e login */
+/*login */
 
 .navigation .btnLogin-popup {
     width: 130px;
@@ -302,7 +302,7 @@ h5{
     }
     
     .navigation .btnLogin-popup:hover{
-        background: black;   
+        background: black;   /*kur qesim mausin mi loginbox mu ba zi*/
         color:white;
     
     }
@@ -324,6 +324,7 @@ h5{
         justify-content: center;
         align-items: center;
         overflow: hidden;
+      /* transform: scale(0);  para ksaj shfaqet login r mas duhet me funksioni login butoni*/
        transition: height .2s ease;
     }
     
