@@ -302,7 +302,7 @@ h5{
     }
     
     .navigation .btnLogin-popup:hover{
-        background: black;   /*kur qesim mausin mi loginbox mu ba zi*/
+        background: black;   
         color:white;
     
     }
@@ -324,7 +324,6 @@ h5{
         justify-content: center;
         align-items: center;
         overflow: hidden;
-      /* transform: scale(0);  para ksaj shfaqet login r mas duhet me funksioni login butoni*/
        transition: height .2s ease;
     }
     

@@ -57,7 +57,6 @@ function validateForm() {
     if (!emailPattern.test(email)) {
         emailError.innerHTML = "Invalid email format. Please enter a valid email address."
         emailError.style.display = "block"
-        // alert("Invalid email format. Please enter a valid email address.");
         return;
     }  else {
         emailError.innerHTML = ""
@@ -71,7 +70,6 @@ function validateForm() {
         passwordError.innerHTML = "Please enter your password."
         passwordError.style.display = "block"
         errorCount ++
-        // alert("Please enter your password.");
         return;
     }  else {
         passwordError.innerHTML = ""
@@ -83,7 +81,6 @@ function validateForm() {
         passwordError.innerHTML = "Password must be at least 8 characters long."
         passwordError.style.display = "block"
         errorCount ++
-        // alert("Password must be at least 8 characters long.");
         return;
     }   else {
         passwordError.innerHTML = ""
@@ -123,7 +120,6 @@ function validateRegisterForm() {
     if (!emailPattern.test(email)) {
         emailError.innerHTML = "Invalid email format. Please enter a valid email address."
         emailError.style.display = "block"
-        // alert("Invalid email format. Please enter a valid email address.");
         return;
     }  else {
         emailError.innerHTML = ""
@@ -137,7 +133,6 @@ function validateRegisterForm() {
         passwordError.innerHTML = "Please enter your password."
         passwordError.style.display = "block"
         errorCount ++
-        // alert("Please enter your password.");
         return;
     }  else {
         passwordError.innerHTML = ""
@@ -149,7 +144,6 @@ function validateRegisterForm() {
         passwordError.innerHTML = "Password must be at least 8 characters long."
         passwordError.style.display = "block"
         errorCount ++
-        // alert("Password must be at least 8 characters long.");
         return;
     }   else {
         passwordError.innerHTML = ""
