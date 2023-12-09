@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fashion Brand DOANA</title>
+        <title>Fashion Brand DOAN</title>
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fashionbrand.css">
@@ -53,26 +53,31 @@
 						<span class="icon">
 							<ion-icon name="person"></ion-icon>
 						</span>
-						<input type="text" required>
+						<input type="text" id="register-username">
 						<label>Username</label>
+						<p id="username-register-error" style="display: none;"></p>
 					</div>
 					<div class="input-box">
 						<span class="icon"> <ion-icon 
 							name="mail"></ion-icon></span>
-						<input type="email" required>
+						<input type="email" id="register-email">
 						<label>Email</label>
+						<p id="email-register-error" style="display: none;"></p>
+
 					</div>
 					<div class="input-box">
 						<span class="icon"><ion-icon 
 							name="lock-closed"></ion-icon></span>
-						<input type="password" required>
+						<input type="password" id="register-password">
 						<label>Password</label>
+						<p id="password-register-error" style="display: none;"></p>
+
 					</div>
 					<div class="remember-forgot">
 						<label><input type="checkbox"
 							>I agree to the terms & conditions</label>
 					</div>
-					<button type="submit" class="btn">Register</button>
+					<button type="submit" class="btn" onclick="validateRegisterForm()">Register</button>
 					<div class="login-register">
 						<p>Already have an account?<a href="#"
 							 class="login-link">Login</a></p></div>
@@ -86,21 +91,23 @@
 					<div class="input-box">
 						<span class="icon"> <ion-icon 
 							name="mail"></ion-icon></span>
-						<input type="email" required>
+						<input type="text" id="email">
 						<label>Email</label>
+						<p id="email-error" style="display: none;"></p>
 					</div>
 					<div class="input-box">
 						<span class="icon"><ion-icon 
 							name="lock-closed"></ion-icon></span>
-						<input type="password" required>
+						<input type="password" id="password">
 						<label>Password</label>
+						<p id="password" style="display: none;"></p>
 					</div>
 					<div class="remember-forgot">
 						<label><input type="checkbox"
 							>Remember me</label>
 							<a href="#">Forgot Password?</a>
 					</div>
-					<button type="submit" class="btn">Login</button>
+					<button type="submit" class="btn"  onclick="validateForm()">Login</button>
 					<div class="login-register">
 						<p>Don't have an account?<a href="#"
 							 class="register-link">Register</a></p></div>
@@ -203,4 +210,3 @@
     </body>
 
 </html>
-
