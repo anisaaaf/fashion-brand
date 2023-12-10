@@ -36,7 +36,6 @@ let errorCount = 0
 function validateForm() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
-
     let emailError = document.getElementById("email-error")
     let passwordError = document.getElementById("password-error")
 
