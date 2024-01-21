@@ -155,3 +155,5 @@ function validateRegisterForm() {
     }
     alert("Form is valid! You can submit it.");
 }
+
+ 

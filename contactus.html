@@ -38,20 +38,53 @@
             </nav>
 		</header>
 
+        <br>
 
-
-		 <section class="about">
+		 <section class="contactus">
         	
-        	<div class="us">
-        		<div class="aboutus">
-        			<h2>Welcome to our website</h2>
-        			<br>
-        			<p>Welcome to Doan Clothes, where fashion meets elegance, and every outfit tells a unique story.At Doan Clothes, we believe that fashion is not just about clothing; it's a form of expression that empowers individuals to showcase their distinct personalities. Our journey began with a vision to create a brand that celebrates diversity, style, and self-confidence.Our curated collections are designed with love and attention to detail, ensuring that each piece reflects the latest trends while maintaining timeless appeal. From casual chic to sophisticated evening wear, Doan Clothes has something for every woman who embraces fashion as a means of self-expression.Quality is at the heart of everything we do. We source the finest materials and work with skilled artisans to bring you garments that not only look stunning but also stand the test of time.Join us on this fashion journey, where every garment is a statement, and every customer is a cherished part of the Doan Clothes family.</p>
-        			
-        		</div>
-        		
-        		
-        	</div>
+        	 <div class="containerr">
+        	 	<br>
+        	 	<br>
+        <h2>Contact Us</h2>
+        <p>Any questions? We are here to help. We work Monday to Friday, 9am to 5pm CET, excluding holidays.</p>
+        <br>
+        <br>
+
+        <form id="contactForm">
+            <label for="firstName">First Name*</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name*</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+
+            <label for="orderType">Online Order</label>
+            <select id="orderType" name="orderType">
+                <option value="none">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="orderNumber">Order Number</label>
+            <input type="text" id="orderNumber" name="orderNumber">
+
+            <label for="message">Your Message*</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <label for="attachment">Attach</label>
+            <input type="file" id="attachment" name="attachment" accept=".jpg, .jpeg, .png, .gif, .pdf, .txt, .doc, .xls">
+
+            <button type="buttonn" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
         	
         </section>
 
@@ -80,7 +113,7 @@
         			
         			<p>CUSTOMER CARE</p>
         			<p>MY ACCOUNT</p>
-        			<p><a href="contactus.html">CONTACT</p>
+        			<p>CONTACT</p>
         			
         		</div>
         		
@@ -98,3 +131,4 @@
 
 </body>
 </html>
+
