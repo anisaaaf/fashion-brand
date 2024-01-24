@@ -22,7 +22,11 @@ session_start();
             $users['email'] =$user->email;
             $users['role'] =$user->role;
             $_SESSION['users']=$users;
+            if($_SESSION['users']['role']==1){
             header("Location: index.php");
+        }elseif ($_SESSION['users']['role']==0) {
+            header("Location: dashboard/index.php");
+        }
       }else{
         echo "Email ose Password eshte gabim";
       }
@@ -35,6 +39,23 @@ session_start();
         $result=mysqli_query($dbcon,$sqli);
         if ($result) {
            echo "U Regjistrua me Sukses";
+        }
+    }
+
+    function about(){
+        global $dbcon;
+        $sqli="SELECT * FROM `about_us`";
+        return $result=mysqli_query($dbcon,$sqli);
+        
+    }
+
+    function contact($id,$first_name,$last_name,$email,$phone_number,$subject,$orderType,$order_number,$message,$attach){
+        global $dbcon;
+        $sqli="INSERT INTO `contact_us`(`id`, `first_name`, `last_name`, `email`, `phone_number`, `subject`, `orderType`, `order_number`, `message`, `attach`)
+         VALUES ('$id','$first_name','$last_name','$email','$phone_number','$subject','$orderType','$order_number','$message','$attach')";
+        $result=mysqli_query($dbcon,$sqli);
+        if ($result) {
+           echo "Mesazhi juaj eshte derguar me sukses.";
         }
     }
 

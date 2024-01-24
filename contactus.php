@@ -10,7 +10,7 @@
     <link rel="stylesheet"
      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
      <title>About</title>
-   
+     <?php require("functions/functions.php"); ?>
 </head>
 <body>
 	<header>
@@ -49,19 +49,45 @@
         <p>Any questions? We are here to help. We work Monday to Friday, 9am to 5pm CET, excluding holidays.</p>
         <br>
         <br>
+<?php 
 
-        <form id="contactForm">
+if (isset($_POST['contact'])) {
+    $id=$_POST['id'];
+    $first_name=$_POST['first_name'];
+    $last_name=$_POST['last_name'];
+    $email=$_POST['email'];
+    $phone_number=$_POST['phone_number'];
+    $subject=$_POST['subject'];
+    $orderType=$_POST['orderType'];
+    $order_number=$_POST['order_number'];
+    $message=$_POST['message'];
+    $attach = $_FILES["attach"]["name"];
+    $tempname = $_FILES["attach"]["tmp_name"];
+    $folder = "./image/" . $attach;
+
+    contact($id,$first_name,$last_name,$email,$phone_number,$subject,$orderType,$order_number,$message,$attach);
+
+    if (move_uploaded_file($tempname, $folder)) {
+        echo "<h3>  Image uploaded successfully!</h3>";
+    } else {
+        echo "<h3>  Failed to upload image!</h3>";
+    }
+}
+
+?>
+        <form id="contactForm" method="POST"  enctype="multipart/form-data">
+            <input type="hidden" name="id">
             <label for="firstName">First Name*</label>
-            <input type="text" id="firstName" name="firstName" required>
+            <input type="text" id="firstName" name="first_name" required>
 
             <label for="lastName">Last Name*</label>
-            <input type="text" id="lastName" name="lastName" required>
+            <input type="text" id="lastName" name="last_name" required>
 
             <label for="email">Email*</label>
             <input type="email" id="email" name="email" required>
 
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone">
+            <input type="tel" id="phone" name="phone_number">
 
             <label for="subject">Subject</label>
             <input type="text" id="subject" name="subject">
@@ -74,15 +100,15 @@
             </select>
 
             <label for="orderNumber">Order Number</label>
-            <input type="text" id="orderNumber" name="orderNumber">
+            <input type="text" id="orderNumber" name="order_number">
 
             <label for="message">Your Message*</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
             <label for="attachment">Attach</label>
-            <input type="file" id="attachment" name="attachment" accept=".jpg, .jpeg, .png, .gif, .pdf, .txt, .doc, .xls">
+            <input type="file" id="attachment" name="attach" accept=".jpg, .jpeg, .png, .gif, .pdf, .txt, .doc, .xls">
 
-            <button type="buttonn" onclick="submitForm()">Submit</button>
+            <button type="buttonn" name="contact" onclick="submitForm()">Submit</button>
         </form>
     </div>
         	

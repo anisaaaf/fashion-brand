@@ -10,7 +10,7 @@
     <link rel="stylesheet"
      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
      <title>About</title>
-   
+	 <?php require("functions/functions.php"); ?>
 </head>
 <body>
 	<header>
@@ -46,8 +46,24 @@
         		<div class="aboutus">
         			<h2>Welcome to our website</h2>
         			<br>
-        			<p>Welcome to Doan Clothes, where fashion meets elegance, and every outfit tells a unique story.At Doan Clothes, we believe that fashion is not just about clothing; it's a form of expression that empowers individuals to showcase their distinct personalities. Our journey began with a vision to create a brand that celebrates diversity, style, and self-confidence.Our curated collections are designed with love and attention to detail, ensuring that each piece reflects the latest trends while maintaining timeless appeal. From casual chic to sophisticated evening wear, Doan Clothes has something for every woman who embraces fashion as a means of self-expression.Quality is at the heart of everything we do. We source the finest materials and work with skilled artisans to bring you garments that not only look stunning but also stand the test of time.Join us on this fashion journey, where every garment is a statement, and every customer is a cherished part of the Doan Clothes family.</p>
-        			
+					<?php 
+								
+								$about=about();
+							
+								if ($about) {
+									$i=0;
+								while ($abouts=mysqli_fetch_assoc($about)){
+										if($i%2==0){
+											echo "";
+										}else{
+											echo "";
+										}
+										echo "".$abouts['content']."" ;
+									}
+								}
+													
+													
+													?>	
         		</div>
         		
         		
