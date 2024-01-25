@@ -10,7 +10,7 @@
     <link rel="stylesheet"
      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
      <title>SHOP WOMEN</title>
-   
+	 <?php require("functions/functions.php"); ?>
 	
 </head>
 <body>
@@ -33,9 +33,19 @@
 
 			</div>
 			
-		    <nav class="navigation">
-                <button class="btnLogin-popup">
-                    Login</button>
+			<nav class="navigation">
+				<?php
+				if(isset($_SESSION['users']['id'])){
+				if ($_SESSION['users']['role']==1 ||	$_SESSION['users']['role']==0 ) {
+					echo '  <a class="" href="logout.php">
+                    Logout</a>';
+				}
+			}else{
+				echo '  <button class="btnLogin-popup">
+				Login</button>';
+			}
+				?>
+              
             </nav>
 		</header>
 
@@ -46,137 +56,34 @@
         	</div>
 
         	<div class="clothes">
-        		<div class="roow">
-        			<img src="image00001.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Jumpsuit</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$2,000</h4>
-        			</div>
-        		</div>
+        <?php		
+			$product=products_shop();
 
-        		<div class="roow">
-        			<img src="image00002.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Maxi Dress</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$1,500</h4>
-        			</div>
-        		</div>
+if ($product) {
+	$i=0;
+while ($products=mysqli_fetch_assoc($product)){
+		if($i%2==0){
+			echo "";
+		}else{
+			echo "";
+		}
 
-        		<div class="roow">
-        			<img src="image00003.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Leather skirt</h3>
+        	echo '<div class="products">
+        		<div class="row">
+        		<a href="product.php?productid='.$products['id'].'"><img src="image/'.$products['photo'].'" alt=""></a>
+        			<div class="product-text">
+        				<h3>'.$products['title'].'</h3>
         			</div>
         			
-        			<div class="pricee">
-        				<h4>$995</h4>
+        			<div class="price">
+        				<h4>$'.$products['price'].'</h4>
         			</div>
-        		</div>
+        		</div>';
 
-        		<div class="roow">
-        			<img src="image00004.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>White dress</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$1,000</h4>
-        			</div>
-        		</div>
+			}
+		}
 
-        		<div class="roow">
-        			<img src="image00005.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Three pices set</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$3,500</h4>
-        			</div>
-        		</div>
-
-        		<div class="roow">
-        			<img src="image00006.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Leather Blazer</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$2,200</h4>
-        			</div>
-        		</div>
-        		
-        		<div class="roow">
-        			<img src="IMG_8112.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Gray set</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$1,000</h4>
-        			</div>
-        		</div>
-
-        		<div class="roow">
-        			<img src="image00018.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Black set</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$1,000</h4>
-        			</div>
-        		</div>
-
-        		<div class="roow">
-        			<img src="image00017.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>White set</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$1,000</h4>
-        			</div>
-        		</div>
-
-        		<div class="roow">
-        			<img src="IMG_8110.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Coat</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$2,000</h4>
-        			</div>
-        		</div>
-
-        		<div class="roow">
-        			<img src="image00011.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Cashmere sweater</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$800</h4>
-        			</div>
-        		</div>
-
-        		<div class="roow">
-        			<img src="image00014.jpeg" alt="">
-        			<div class="product-texxt">
-        				<h3>Suits</h3>
-        			</div>
-        			
-        			<div class="pricee">
-        				<h4>$2,100</h4>
-        			</div>
-        		</div>
+				?>
         	</div>
         </section>
 

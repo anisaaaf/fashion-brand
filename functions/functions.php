@@ -71,9 +71,37 @@ session_start();
 
     function products(){
         global $dbcon;
+        $sqli="SELECT * FROM `products` LIMIT 4";
+        return $result=mysqli_query($dbcon,$sqli);
+        
+    }
+
+    function products_shop(){
+        global $dbcon;
         $sqli="SELECT * FROM `products`";
         return $result=mysqli_query($dbcon,$sqli);
         
+    }
+
+    function getproductid($productid){
+        global $dbcon;
+        $sqli="SELECT `id`,`title`,`content`,`price`,`photo` FROM `products`
+               WHERE `id`='$productid'";
+         $products=mysqli_query($dbcon,$sqli) or die(mysqli_error($dbcon));
+         $product=mysqli_fetch_assoc($products);
+         return $product;
+    }
+
+    function   order($id,$firstname,$lastname,$email,$username,$phone,$product_id){
+        global $dbcon;
+        $sqli="INSERT INTO `orders`(`id`, `name`, `surname`, `email`, `username`, `phone`, `product_id`)
+         VALUES ('$id','$firstname','$lastname','$email','$username','$phone','$product_id')";
+        $result=mysqli_query($dbcon,$sqli);
+        if ($result) {
+           header('location:./complete_order.php');
+        }else {
+            echo "Your Order has been refused";
+        }
     }
 
 

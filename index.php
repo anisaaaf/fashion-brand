@@ -187,7 +187,7 @@ while ($products=mysqli_fetch_assoc($product)){
 
         	echo '<div class="products">
         		<div class="row">
-        		<a href=""><img src="image/'.$products['photo'].'" alt=""></a>
+        		<a href="product.php?productid='.$products['id'].'"><img src="image/'.$products['photo'].'" alt=""></a>
         			<div class="product-text">
         				<h3>'.$products['title'].'</h3>
         			</div>

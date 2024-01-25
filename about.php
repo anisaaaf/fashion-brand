@@ -32,9 +32,19 @@
 
 			</div>
 			
-		    <nav class="navigation">
-                <button class="btnLogin-popup">
-                    Login</button>
+			<nav class="navigation">
+				<?php
+				if(isset($_SESSION['users']['id'])){
+				if ($_SESSION['users']['role']==1 ||	$_SESSION['users']['role']==0 ) {
+					echo '  <a class="" href="logout.php">
+                    Logout</a>';
+				}
+			}else{
+				echo '  <button class="btnLogin-popup">
+				Login</button>';
+			}
+				?>
+              
             </nav>
 		</header>
 
