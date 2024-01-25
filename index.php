@@ -172,19 +172,36 @@
         		<h2>Our Trending<span> Products</h2>
         		
         	</div>
+<?php
 
-        	<div class="products">
+$product=products();
+
+if ($product) {
+	$i=0;
+while ($products=mysqli_fetch_assoc($product)){
+		if($i%2==0){
+			echo "";
+		}else{
+			echo "";
+		}
+
+        	echo '<div class="products">
         		<div class="row">
-        			<img src="image00008.jpeg" alt="">
+        		<a href=""><img src="image/'.$products['photo'].'" alt=""></a>
         			<div class="product-text">
-        				<h3>Coat</h3>
+        				<h3>'.$products['title'].'</h3>
         			</div>
         			
         			<div class="price">
-        				<h4>$1,165</h4>
+        				<h4>$'.$products['price'].'</h4>
         			</div>
-        		</div>
+        		</div>';
 
+			}
+		}
+
+				?>
+<!-- 
         		<div class="row">
         			<img src="image00009.jpeg" alt="">
         			<div class="product-text">
@@ -236,7 +253,7 @@
 
                     </div>
                    
-                </div>
+                </div> -->
                
             </div>
                </section>

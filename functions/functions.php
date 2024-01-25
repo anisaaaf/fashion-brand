@@ -58,6 +58,23 @@ session_start();
            echo "Mesazhi juaj eshte derguar me sukses.";
         }
     }
+    
+    function addproduct($id,$title,$content,$price,$photo){
+        global $dbcon;
+        $sqli="INSERT INTO `products`(`id`, `title`, `content`, `price`, `photo`) 
+        VALUES ('$id','$title','$content','$price','$photo')";
+        $result=mysqli_query($dbcon,$sqli);
+        if ($result) {
+           echo "Mesazhi juaj eshte derguar me sukses.";
+        }
+    }
+
+    function products(){
+        global $dbcon;
+        $sqli="SELECT * FROM `products`";
+        return $result=mysqli_query($dbcon,$sqli);
+        
+    }
 
 
 

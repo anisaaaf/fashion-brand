@@ -12,12 +12,17 @@
 <body>
     <table>
         <thead>
-            <th><a href="product.php">Products</a></th>
-            <th><a href="about.php">About</a></th>
-            <th><a href="contact.php">Contact</a></th>
-            <th><a href="clients.php">Clients</a></th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>price</th>
+                <th>photo</th>
+                <th></th>
+                <th></th>
+                <th ><a href="./index.php">Go Back</a></th>
+                <th><a href="add-product.php">Add</a></th>
         </thead>
-        <th><a href="../logout.php">Log Out</a></th>
+ 
     </table>
 
 </body>
