@@ -49,6 +49,47 @@ session_start();
         
     }
 
+    function getaboutid($aboutid){
+        global $dbcon;
+        $sqli="SELECT `id`,`content` FROM `about_us`
+               WHERE `id`='$aboutid'";
+         $abouts=mysqli_query($dbcon,$sqli) or die(mysqli_error($dbcon));
+         $about=mysqli_fetch_assoc($abouts);
+         return $about;
+    }
+
+    function addabout($id,$content){
+        global $dbcon;
+        $sqli="INSERT INTO `about_us`(`id`, `content`) 
+        VALUES ('$id','$content')";
+        $result=mysqli_query($dbcon,$sqli);
+        if ($result) {
+            header("location:../dashboard/about.php");
+        }
+    }
+    function updateabout($aboutid,$content){
+        global $dbcon;
+        $sqli=" UPDATE `about_us` SET `content`='$content' WHERE 
+        `id`='$aboutid'";
+       $result=mysqli_query($dbcon,$sqli);
+       if ($result) {
+           header("location:../dashboard/about.php");
+       }
+    }
+
+    
+    if (isset($_GET['deleteabtid'])) {
+        deleteabout($_GET['deleteabtid']);
+     }
+     function deleteabout($deleteabtid){
+        global $dbcon;
+        $sqli="DELETE FROM about_us WHERE id=$deleteabtid";
+        $deleteabout=mysqli_query($dbcon,$sqli);
+        if ($deleteabout) {
+            header("location:../dashboard/about.php");
+        }
+     }
+
     function contact($id,$first_name,$last_name,$email,$phone_number,$subject,$orderType,$order_number,$message,$attach){
         global $dbcon;
         $sqli="INSERT INTO `contact_us`(`id`, `first_name`, `last_name`, `email`, `phone_number`, `subject`, `orderType`, `order_number`, `message`, `attach`)
@@ -58,6 +99,13 @@ session_start();
            echo "Mesazhi juaj eshte derguar me sukses.";
         }
     }
+
+    function contacts_form(){
+        global $dbcon;
+        $sqli="SELECT * FROM `contact_us`";
+        return $result=mysqli_query($dbcon,$sqli);
+        
+    }
     
     function addproduct($id,$title,$content,$price,$photo){
         global $dbcon;
@@ -65,9 +113,11 @@ session_start();
         VALUES ('$id','$title','$content','$price','$photo')";
         $result=mysqli_query($dbcon,$sqli);
         if ($result) {
-           echo "Mesazhi juaj eshte derguar me sukses.";
+            header("location:../dashboard/product.php");
         }
     }
+
+    
 
     function products(){
         global $dbcon;
@@ -82,6 +132,29 @@ session_start();
         return $result=mysqli_query($dbcon,$sqli);
         
     }
+
+    if (isset($_GET['deleteid'])) {
+        deleteproduct($_GET['deleteid']);
+     }
+     function deleteproduct($productsid){
+        global $dbcon;
+        $sqli="DELETE FROM products WHERE id=$productsid";
+        $deleteproducts=mysqli_query($dbcon,$sqli);
+        if ($deleteproducts) {
+            header("location:../dashboard/product.php");
+        }
+     }
+
+     
+ function updateproduct($productsid,$title,$content,$price,$photo){
+    global $dbcon;
+    $sqli=" UPDATE `products` SET `title`='$title',`content`='$content',`price`='$price',`photo`='$photo' WHERE 
+    `id`='$productsid'";
+   $result=mysqli_query($dbcon,$sqli);
+   if ($result) {
+       header("location:../dashboard/edit-product.php");
+   }
+}
 
     function getproductid($productid){
         global $dbcon;

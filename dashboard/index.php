@@ -16,6 +16,7 @@
             <th><a href="about.php">About</a></th>
             <th><a href="contact.php">Contact</a></th>
             <th><a href="clients.php">Clients</a></th>
+            <th><a href="users.php">User</a></th>
         </thead>
         <th><a href="../logout.php">Log Out</a></th>
     </table>
