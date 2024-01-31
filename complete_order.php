@@ -7,5 +7,6 @@
 </head>
 <body>
     YOUR ORDER HAS BEEN RECIEVED SUCCESSFULLY
+    <a href="index.php">Go Back</a>
 </body>
 </html>

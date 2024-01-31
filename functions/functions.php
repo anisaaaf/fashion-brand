@@ -102,6 +102,12 @@ session_start();
        }
     }
 
+    function orders(){
+        global $dbcon;
+        $sqli="SELECT * FROM `orders`";
+        return $result=mysqli_query($dbcon,$sqli);
+    }
+
     
     if (isset($_GET['deleteabtid'])) {
         deleteabout($_GET['deleteabtid']);
