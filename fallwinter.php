@@ -18,7 +18,7 @@
 
             <ul class="navmenu">
             	<li><a href="shopwomen.php">SHOP WOMEN</li>
-            	<li><a href="">COLLECTIONS</li>
+            	<li><a href="fallwinter.php">COLLECTIONS</li>
             	<li><a href="about.php">ABOUT</li>
                 <li><a href="contactus.php">CONTACT</li>
             </ul>
@@ -48,76 +48,31 @@
             </div>
 
            
-            <div class="clothees">
-                <div class="rrow">
-                    <img src="IMG_8112.jpeg" alt="">
-                    <div class="product-teext">
-                        <h3>Gray set</h3>
-                    </div>
-                    
-                    <div class="pricce">
-                        <h4>$1,000</h4>
-                    </div>
+        
+                <div id="kontenti">
+                <img id="slideshow" />
+                <br>
+                    <button class="slideshowbutton" onclick="changeImg()">Next</button> 
                 </div>
-
-                <div class="rrow">
-                    <img src="image00018.jpeg" alt="">
-                    <div class="product-teext">
-                        <h3>Black set</h3>
-                    </div>
-                    
-                    <div class="pricce">
-                        <h4>$1,000</h4>
-                    </div>
-                </div>
-
-                <div class="roow">
-                    <img src="image00017.jpeg" alt="">
-                    <div class="product-texxt">
-                        <h3>White set</h3>
-                    </div>
-                    
-                    <div class="pricee">
-                        <h4>$1,000</h4>
-                    </div>
-                </div>
-
-                <div class="rrow">
-                    <img src="IMG_8110.jpeg" alt="">
-                    <div class="product-teext">
-                        <h3>Coat</h3>
-                    </div>
-                    
-                    <div class="pricce">
-                        <h4>$2,000</h4>
-                    </div>
-                </div>
-
-                <div class="rrow">
-                    <img src="image00011.jpeg" alt="">
-                    <div class="product-teext">
-                        <h3>Cashmere sweater</h3>
-                    </div>
-                    
-                    <div class="pricce">
-                        <h4>$800</h4>
-                    </div>
-                </div>
-
-                <div class="rrow">
-                    <img src="image00014.jpeg" alt="">
-                    <div class="product-teext">
-                        <h3>Suits</h3>
-                    </div>
-                    
-                    <div class="pricce">
-                        <h4>$2,100</h4>
-                    </div>
-                </div>
-            </div>
         </section>
 
-	
+	    <script>
+        let i = 0;
+        let imgArray = ['image00001.jpeg','image00002.jpeg','image00003.jpeg','image00004.jpeg'];
+
+        function changeImg(){
+            document.getElementById('slideshow').src = imgArray[i];
+
+            if(i< imgArray.length -1){
+                i++;
+            }
+            else{
+                i=0;
+            }
+            //setTimeout("changeImg()", 2600);
+        }
+        document.addEventListener(onload, changeImg());
+    </script>
 
 
 

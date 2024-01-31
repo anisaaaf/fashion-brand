@@ -12,6 +12,21 @@
      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
    <?php require("functions/functions.php"); 
  // lidhja e file te funksioneve me faqen kryesore  
+
+
+ $session_timeout = 1800; 
+if(isset($_SESSION['users']['id'])) {
+    if (isset($_SESSION['last_activity']) && ($_SESSION['last_activity'] + $session_timeout < time())) {
+        logout();
+        echo "Session timed out. Please log in again.";
+    } else {
+        $_SESSION['last_activity'] = time();
+        echo "Welcome";
+    }
+} else {
+    echo "Please log in.";
+}
+
    ?> 
   <title> Fashion Brand DOAN</title>
     </head>

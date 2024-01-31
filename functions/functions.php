@@ -31,7 +31,22 @@ session_start();
         echo "Email ose Password eshte gabim";
       }
     }
-
+    function logout() {
+        // Unset all of the session variables
+        $_SESSION = array();
+    
+        // Delete the session cookie
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 1800,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+    
+        // Destroy the session
+        session_destroy();
+    }
     function register($id,$username,$email,$password,$role){
         global $dbcon;
         $sqli="INSERT INTO `users`(`id`, `username`, `email`, `password`, `role`) 
@@ -49,6 +64,16 @@ session_start();
         
     }
 
+    function getuserid($userid){
+        global $dbcon;
+        $sqli="SELECT * FROM `users`
+               WHERE `id`='$userid'";
+         $users=mysqli_query($dbcon,$sqli) or die(mysqli_error($dbcon));
+         $user=mysqli_fetch_assoc($users);
+         return $user;
+    }
+
+    
     function getaboutid($aboutid){
         global $dbcon;
         $sqli="SELECT `id`,`content` FROM `about_us`
@@ -117,7 +142,32 @@ session_start();
         }
     }
 
+        
+    function adduser($id,$username,$email,$password,$role){
+        global $dbcon;
+        $sqli="INSERT INTO `users`(`id`, `username`, `email`, `password`, `role`) 
+        VALUES ('$id','$username','$email','$password','$role')";
+        $result=mysqli_query($dbcon,$sqli);
+        if ($result) {
+            header("location:../dashboard/users.php");
+        }
+    }
+
+    function  updateusers($id,$username,$email,$password,$role){
+        global $dbcon;
+        $sqli=" UPDATE `users` SET `username`='$username',`email`='$email',`password`='$password',`role`='$role' WHERE 
+        `id`='$id'";
+       $result=mysqli_query($dbcon,$sqli);
+       if ($result) {
+           header("location:../dashboard/users.php");
+       }
+    }
     
+    function users(){
+        global $dbcon;
+        $sqli="SELECT * FROM `users`";
+        return $result=mysqli_query($dbcon,$sqli);
+    }
 
     function products(){
         global $dbcon;
@@ -145,6 +195,18 @@ session_start();
         }
      }
 
+     
+    if (isset($_GET['deleteuserid'])) {
+        deleteuser($_GET['deleteuserid']);
+     }
+     function deleteuser($userid){
+        global $dbcon;
+        $sqli="DELETE FROM users WHERE id=$userid";
+        $deleteuser=mysqli_query($dbcon,$sqli);
+        if ($deleteuser) {
+            header("location:../dashboard/users.php");
+        }
+     }
      
  function updateproduct($productsid,$title,$content,$price,$photo){
     global $dbcon;
