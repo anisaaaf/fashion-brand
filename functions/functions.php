@@ -128,6 +128,8 @@ session_start();
         $result=mysqli_query($dbcon,$sqli);
         if ($result) {
            echo "Mesazhi juaj eshte derguar me sukses.";
+        }else{
+            echo "Mesazhi juaj nuk eshte derguar me sukses.";
         }
     }
 
